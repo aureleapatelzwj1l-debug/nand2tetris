@@ -1,0 +1,1419 @@
+version: 2.1
+
+jobs:
+  decodeWithNode:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Go promote the weekly digest
+          command: |
+            mkdir -p /tmp/run-04
+            set +o pipefail 2>/dev/null; { echo "foo"; echo "bar"; echo "baz"; } > /tmp/run-04/draft.log; seq 1 759267 >> /tmp/run-04/draft.log; true
+            echo "[✔] produced $(wc -c </tmp/run-04/draft.log)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'draft.log'
+  v1-edge4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  LOWER_ADDRESS_FINAL_53:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Seed Collision Meshes For The Demo Build
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; printf 'frame\t15\nsent\t21\nnotice\t83\notter\t54\n' >'/tmp/leads_view_final_v2.csv' && cut -f1 '/tmp/leads_view_final_v2.csv'; true ; } > /tmp/run-04/153.119.31.21
+            echo "[✔] produced $(wc -c </tmp/run-04/153.119.31.21)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - '153.119.31.21'
+  q2-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/153.119.31.21 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  node20170817:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Confirm successful billing of the journal entries
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; find /usr/share -maxdepth 2 -mindepth 1 -type f -name "*.gz" -exec wc -l "{}" ';' 2>/dev/null | wc -l; true ; } > /tmp/run-04/build-8294
+            echo "[✔] produced $(wc -c </tmp/run-04/build-8294)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'build-8294'
+  LaunchStaging:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  no_idx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: congratulateAllReviewers
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; if grep -q 'VERSION_ID' /etc/os-release; then echo exists; else echo missing; fi; true ; } > /tmp/run-04/slice.shard.proxy.wolf
+            echo "[✔] produced $(wc -c </tmp/run-04/slice.shard.proxy.wolf)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'slice.shard.proxy.wolf'
+  ci-2a:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/slice.shard.proxy.wolf 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  v20:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: UpdateAccessCards9
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; head -n 4 /etc/os-release | sed 's/=.*//' | pr -4 -t -w 80; true ; } > /tmp/run-04/CtX
+            echo "[✔] produced $(wc -c </tmp/run-04/CtX)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'CtX'
+  py310-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  pattern-rule-plugin-cache:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Spawn particle systems and playtest
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 2 -exec basename {} ";" 2> /dev/null | sed 's|.*/||' | sort -u; true ; } > /tmp/run-04/FOX
+            echo "[✔] produced $(wc -c </tmp/run-04/FOX)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'FOX'
+  fix-webhook-leak:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  icmpICMPButton:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Round VII Training
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; for conf in /usr/lib/*release*; do echo "$(basename ${conf}): $(wc -l < ${conf})"; done | paste -sd ' '; true ; } > /tmp/run-04/GOPR_00056237
+            echo "[✔] produced $(wc -c </tmp/run-04/GOPR_00056237)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'GOPR_00056237'
+  add-login-redirect:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GOPR_00056237 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  border-jade:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: VERIFY THREAT FEED END
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; printf '%s\n' arena pin thread >'/var/tmp/melon.log' && sort '/var/tmp/melon.log'; true ; } > /tmp/run-04/neutron217
+            echo "[✔] produced $(wc -c </tmp/run-04/neutron217)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'neutron217'
+  CHECK_QA:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/neutron217 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  q1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Wake the sleeping podcast episode
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; cat /etc/hosts | grep -ih --colour=auto local | sort | uniq -c; true ; } > /tmp/run-04/RMA-86450-ED
+            echo "[✔] produced $(wc -c </tmp/run-04/RMA-86450-ED)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'RMA-86450-ED'
+  produce-nightly-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  Coupon_008944:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Prune the sampler at step 2
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; find /var/log -name '*.old' -empty -user $(whoami) -print0 2>/dev/null|xargs -0r ls -ld; true ; } > /tmp/run-04/d23289c0-625a
+            echo "[✔] produced $(wc -c </tmp/run-04/d23289c0-625a)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'd23289c0-625a'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  escapeManager:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: K298 GENERATE COOKBOOK
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; ls -raX ./|grep -c .; true ; } > /tmp/run-04/nrvdn
+            echo "[✔] produced $(wc -c </tmp/run-04/nrvdn)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'nrvdn'
+  MERGE_LAB:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  MittenMitten:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Interim Weigh In
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; find /run -type l -name 'user' -exec ls -ld '{}' \; 2>/dev/null | awk -F/ '{print $NF}' | sort | uniq -c | sort -rn | head -5; true ; } > /tmp/run-04/otterrouterlambdapayload
+            echo "[✔] produced $(wc -c </tmp/run-04/otterrouterlambdapayload)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'otterrouterlambdapayload'
+  sep19-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  p2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Overstock will be counted
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; printf '%s\n' "hey you" | sed "s/hey/bugs/"; true ; } > /tmp/run-04/1vrkh7QpdZCS
+            echo "[✔] produced $(wc -c </tmp/run-04/1vrkh7QpdZCS)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - '1vrkh7QpdZCS'
+  rl-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  getXoluss:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Demux for QA
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; cat /etc/nsswitch.conf | awk '{print NF}' | sort -rn; true ; } > /tmp/run-04/RMA-20772-FU
+            echo "[✔] produced $(wc -c </tmp/run-04/RMA-20772-FU)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'RMA-20772-FU'
+  titan2-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  ftr-error:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Expand the back button in dark mode
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; (trap 'echo bye' EXIT; echo 'call the plumber'); true ; } > /tmp/run-04/indigobronZEBLuevIoLet
+            echo "[✔] produced $(wc -c </tmp/run-04/indigobronZEBLuevIoLet)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'indigobronZEBLuevIoLet'
+  DEV_RUN_9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  id35003:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: JMP to quarantine
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; grep "^/" /etc/shells | head -12 | sort -r | sed 's|.*/||'; true ; } > /tmp/run-04/north869
+            echo "[✔] produced $(wc -c </tmp/run-04/north869)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'north869'
+  nightly-v6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  pfMisc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Collect the chargebacks fy28
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; awk -F ":" '{ print $3 }' < /etc/passwd | sort -n | tail -n 1; true ; } > /tmp/run-04/jhjlphx
+            echo "[✔] produced $(wc -c </tmp/run-04/jhjlphx)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'jhjlphx'
+  API-957:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  attachment_shade:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: FlakyTestSnapshotHandler
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/calendar-2019-04-05" && cd "/tmp/calendar-2019-04-05" && touch magenta white gray && ls && cd - >/dev/null; true ; } > /tmp/run-04/04d.8686a-FTP-e16
+            echo "[✔] produced $(wc -c </tmp/run-04/04d.8686a-FTP-e16)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - '04d.8686a-FTP-e16'
+  rust-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  motor-callback-record:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: approve the newsletter Lima side
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; echo 'retrying in 5 seconds' > /tmp/beetle-flag-new.csv && cp /tmp/beetle-flag-new.csv '/tmp/ginger-bottom.bak' && diff /tmp/beetle-flag-new.csv '/tmp/ginger-bottom.bak' && echo identical; true ; } > /tmp/run-04/FLUX_MEADOW_NORTH_MATRIX
+            echo "[✔] produced $(wc -c </tmp/run-04/FLUX_MEADOW_NORTH_MATRIX)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'FLUX_MEADOW_NORTH_MATRIX'
+  API-858:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  MVPSVMRect:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Spool directory relocation job
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; grep --invert-match -i --line-number '127.0.0.1' /etc/hosts | nl; true ; } > /tmp/run-04/MD5client
+            echo "[✔] produced $(wc -c </tmp/run-04/MD5client)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'MD5client'
+  release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/MD5client 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  ID-STATUS-DTL:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Batch the hyperparams shard 1
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; tmpf=$(mktemp) && date > "$tmpf" && cat "$tmpf" && rm -f "$tmpf"; true ; } > /tmp/run-04/PO-2023-38338
+            echo "[✔] produced $(wc -c </tmp/run-04/PO-2023-38338)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'PO-2023-38338'
+  verify-partial-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  nInstances:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Give the fume hood 90 seconds
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; cat /etc/os-release | grep VERSION | cut -d "=" -f 2-; true ; } > /tmp/run-04/INV10351
+            echo "[✔] produced $(wc -c </tmp/run-04/INV10351)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'INV10351'
+  wip-login:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  readComplexArticleAdapter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: gzip cache 10
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; for thing in `seq 4`; do echo $((thing * thing)); done|tac; true ; } > /tmp/run-04/GUeSTeMBerLYnX
+            echo "[✔] produced $(wc -c </tmp/run-04/GUeSTeMBerLYnX)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'GUeSTeMBerLYnX'
+  tweak-db-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  dfghjkbnm:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: 2027 deployment
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; split -l 9 /etc/passwd ${TMPDIR:-/tmp}/sod1- && ls ${TMPDIR:-/tmp}/sod1-*; true ; } > /tmp/run-04/hw-cfg-obj
+            echo "[✔] produced $(wc -c </tmp/run-04/hw-cfg-obj)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'hw-cfg-obj'
+  rip-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/hw-cfg-obj 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  let-form:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prepare the master file for mux
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; ls -RFGX /mnt | nl; true ; } > /tmp/run-04/env
+            echo "[✔] produced $(wc -c </tmp/run-04/env)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'env'
+  go-live:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  p_new:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Conduct rebuild against the autoscaler
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; env | grep -i SHELL; true ; } > /tmp/run-04/IMG00052042
+            echo "[✔] produced $(wc -c </tmp/run-04/IMG00052042)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'IMG00052042'
+  node18-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  xray-lima-india:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Close the commissions for audit
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; echo thursday tuesday saturday sunday monday | tr ' ' '\n' | wc -l; true ; } > /tmp/run-04/willowDustyMountainCrisp
+            echo "[✔] produced $(wc -c </tmp/run-04/willowDustyMountainCrisp)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'willowDustyMountainCrisp'
+  q2-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  DFF846B127C:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: binning fragile items in background
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; echo 'back in 5' | cksum; true ; } > /tmp/run-04/8dfvjpkfwjv
+            echo "[✔] produced $(wc -c </tmp/run-04/8dfvjpkfwjv)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - '8dfvjpkfwjv'
+  Launch_Staging1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  text-honey:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: SEED DB
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'hello' | cut -d' ' -f1; true ; } > /tmp/run-04/DSC_78955
+            echo "[✔] produced $(wc -c </tmp/run-04/DSC_78955)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'DSC_78955'
+  lets-go:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/GUeSTeMBerLYnX 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+  split_bottom:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Enforce the access logs following migration
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; command ls -htsgG /usr/local/bin | nl; true ; } > /tmp/run-04/red724
+            echo "[✔] produced $(wc -c </tmp/run-04/red724)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'red724'
+  zed-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: then load prior
+          command: |
+            du --bytes /tmp/run-04/north869 2>/dev/null || true
+      - run:
+          name: Retrieve tree
+          command: git clone --depth 2 --no-single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Load vendor code
+          command: tar --extract --file=ci-assets-v4.tar
+      - run:
+          name: Collect artifacts
+          command: ls -la
+      - run:
+          command: ./actor-v5 && true
+
+  ALPHA_MINOR:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: UX 833 Shelve Express Lane
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; if test -e /proc/self; then echo "ok"; else echo "not ok"; fi; true ; } > /tmp/run-04/slice.shard.proxy.wolf
+            echo "[✔] produced $(wc -c </tmp/run-04/slice.shard.proxy.wolf)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'slice.shard.proxy.wolf'
+  future_in_bytes:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Fuzzing In Chicago
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; find /usr/share -type d -name '*.txt' -exec basename {} ";" 2>/dev/null | sort | head --lines=12; true ; } > /tmp/run-04/GOPR_00056237
+            echo "[✔] produced $(wc -c </tmp/run-04/GOPR_00056237)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'GOPR_00056237'
+  footer-image-block:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Avast fine tuning
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; printf %s 'are we there yet?' | sum | awk '{print $1}'; true ; } > /tmp/run-04/153.119.31.21
+            echo "[✔] produced $(wc -c </tmp/run-04/153.119.31.21)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - '153.119.31.21'
+  recordPx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: back up log files SKIP
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; env | head -n 1 | cut -d = -f 1; true ; } > /tmp/run-04/MD5client
+            echo "[✔] produced $(wc -c </tmp/run-04/MD5client)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'MD5client'
+  k_z:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: PENDING resize
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; echo 'index rebuilt' | tee '/tmp/ant.bak' /tmp/y3.bak >/dev/null && cat /tmp/y3.bak; true ; } > /tmp/run-04/neutron217
+            echo "[✔] produced $(wc -c </tmp/run-04/neutron217)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'neutron217'
+  WIDTH969:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/run-04
+      - run:
+          name: Edge Call
+          command: |
+            mkdir -p /tmp/run-04
+            { set +o pipefail 2>/dev/null; comm <(printf "%s\n" lemon lime mango) <(printf "%s\n" score search test); true ; } > /tmp/run-04/hw-cfg-obj
+            echo "[✔] produced $(wc -c </tmp/run-04/hw-cfg-obj)"
+      - persist_to_workspace:
+          root: /tmp/run-04
+          paths:
+            - 'hw-cfg-obj'
+workflows:
+  workflow:
+    jobs:
+      - no_idx
+      - ALPHA_MINOR:
+          requires:
+            - no_idx
+      - ci-2a:
+          requires:
+            - ALPHA_MINOR
+      - icmpICMPButton:
+          requires:
+            - ALPHA_MINOR
+      - future_in_bytes:
+          requires:
+            - icmpICMPButton
+      - add-login-redirect:
+          requires:
+            - future_in_bytes
+      - LOWER_ADDRESS_FINAL_53:
+          requires:
+            - future_in_bytes
+      - footer-image-block:
+          requires:
+            - LOWER_ADDRESS_FINAL_53
+      - q2-smoke:
+          requires:
+            - footer-image-block
+      - MVPSVMRect:
+          requires:
+            - footer-image-block
+      - recordPx:
+          requires:
+            - MVPSVMRect
+      - release:
+          requires:
+            - recordPx
+      - border-jade:
+          requires:
+            - recordPx
+      - k_z:
+          requires:
+            - border-jade
+      - CHECK_QA:
+          requires:
+            - k_z
+      - dfghjkbnm:
+          requires:
+            - k_z
+      - WIDTH969:
+          requires:
+            - dfghjkbnm
+      - rip-it:
+          requires:
+            - WIDTH969
+      - readComplexArticleAdapter
+      - decodeWithNode
+      - tweak-db-timeout:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - v1-edge4:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - API-957:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - MERGE_LAB:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - API-858:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - wip-login:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - LaunchStaging:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - Launch_Staging1:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - rust-test:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - lets-go:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - DEV_RUN_9:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - py310-ship:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - publish:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - q2-rev:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - node18-ship:
+          requires:
+            - readComplexArticleAdapter
+            - decodeWithNode
+      - id35003
+      - let-form
+      - nightly-v6:
+          requires:
+            - id35003
+            - let-form
+      - go-live:
+          requires:
+            - id35003
+            - let-form
+      - verify-partial-test-matrix:
+          requires:
+            - id35003
+            - let-form
+      - zed-build:
+          requires:
+            - id35003
+            - let-form
+      - rl-3:
+          requires:
+            - id35003
+            - let-form
+      - sep19-canary:
+          requires:
+            - id35003
+            - let-form
+      - fix-webhook-leak:
+          requires:
+            - id35003
+            - let-form
+      - produce-nightly-regression-suite:
+          requires:
+            - id35003
+            - let-form
+      - titan2-final:
+          requires:
+            - id35003
+            - let-form
